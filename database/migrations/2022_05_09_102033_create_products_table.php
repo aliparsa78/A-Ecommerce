@@ -17,13 +17,15 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->tinyInteger('cat_id');
             $table->string('name');
+            $table->string('weight');
+            $table->string('name');
             $table->string('desctiption');
             $table->tinyInteger('original_price');
             $table->tinyInteger('selling_price');
             $table->string('image');
             $table->tinyInteger('tax');
             $table->tinyInteger('qty');
-            $table->tinyInteger('status')->default('0');
+            $table->tinyInteger('live');
             $table->timestamps();
         });
     }

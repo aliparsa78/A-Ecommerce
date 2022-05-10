@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::get('/dashboard', [UserController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
+
+
 Route::view('h','index');
+Route::get('/home',[HomeController::class,'index']);
+
+Route::group(['middleware'=>['auth']],function(){
+    
+    Route::get('/dashboard', [UserController::class,'index']);
+});

@@ -1,10 +1,16 @@
-<h1>This is Admin page</h1>
-<form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @section('title')
+        Laravel Ecommerce
+    @endsection
+    <link rel="stylesheet" href="../css/bootstrap5.css">
+</head>
+<body>
+    @extends('Admin.layout.main')
+</div>
+</body>
+</html>

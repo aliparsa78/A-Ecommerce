@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Middleware\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,12 +24,9 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 
-
-
-Route::view('h','index');
 Route::get('/home',[HomeController::class,'index']);
 
-Route::group(['middleware'=>['auth']],function(){
-    
+Route::group(['middleware'=>['admin','auth']],function(){
     Route::get('/dashboard', [UserController::class,'index']);
+    Route::get('/admin',[AdminController::class,'index']);
 });

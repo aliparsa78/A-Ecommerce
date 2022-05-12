@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Auth;
+
 class UserMiddleware
 {
     /**
@@ -20,8 +21,8 @@ class UserMiddleware
         {
             if(Auth::user()->role_as=='1')
             {
-                // return $next($request);
-                return redirect('dashboard');
+                 return $next($request);
+                //return redirect('dashboard');
             }
             else{
                 return redirect('/home')->with('status','Access Denied! as you are not as admin');
@@ -30,7 +31,8 @@ class UserMiddleware
         }
         else
         {
-          return redirect('/')->with('status','Please login first!!');      
+           return redirect('/')->with('status','Please login first!!');  
+            
         }
       
     }

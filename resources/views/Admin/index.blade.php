@@ -7,10 +7,16 @@
     @section('title')
         Laravel Ecommerce
     @endsection
+    <script src = "../js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/bootstrap5.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     @extends('Admin.layout.main')
-</div>
+    @section('content')
+    <h1>this is main part</h1>
+    @endsection
+
+
 </body>
 </html>

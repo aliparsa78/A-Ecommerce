@@ -1,0 +1,17 @@
+/* Backend part start here */
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: tomato;
+}
+footer h3{
+    padding-top: 20px;
+    color: white;
+}
+#nav-log{
+    margin-right: 30px;
+    list-style-type: none;
+}
+
+
+/* forntend part start here  */

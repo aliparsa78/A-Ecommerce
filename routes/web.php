@@ -27,6 +27,6 @@ require __DIR__.'/auth.php';
 Route::get('/home',[HomeController::class,'index']);
 
 Route::group(['middleware'=>['admin','auth']],function(){
-    Route::get('/dashboard', [UserController::class,'index']);
-    Route::get('/admin',[AdminController::class,'index']);
+    Route::get('/dashboard', [AdminController::class,'index']);
+    Route::get('/user',[UserController::class,'index']);
 });

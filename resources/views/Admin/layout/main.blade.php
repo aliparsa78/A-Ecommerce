@@ -10,6 +10,7 @@
   </title>
   <script src = "../js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/bootstrap5.css">
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="g-sidenav-show  bg-gray-200">

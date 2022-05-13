@@ -12,9 +12,9 @@
     @extends('../Admin/layout/main')
 
     @section('content')
-    <div class="table-responsive">
-        <a href="" class="btn btn-info mt-4">Add User</a>
+    <a href="" class="btn btn-info mt-4">Add User <i class="fa fa-user"></i></a>
         <h4 class="text-center">User Table</h4>
+    <div class="table-responsive">
         <table class="table table-hover" id="user-table">
             <thead>
                 <tr>

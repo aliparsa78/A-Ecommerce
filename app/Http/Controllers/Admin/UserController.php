@@ -14,4 +14,12 @@ class UserController extends Controller
        $user = User::all();
        return view('Admin.Users.index',compact('user'));
     }
+    function remove_user($id)
+    {
+        $user = User::find($id);
+        if(User::Exists($user)){
+            $user->delete();
+        }
+        return redirect('user');
+    }
 }

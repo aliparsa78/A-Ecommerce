@@ -47,10 +47,10 @@
                 <td>{{$user->address2}}</td>
                 <td>{{$user->verificationCode}}</td>
                 <td>
-                    <a href="">update</a>
+                    <a href="" class="fa fa-edit"><i>update</i></a>
                 </td>
                 <td>
-                    <a href="">update</a>
+                    <a href="remove-user/{{$user->id}}" class="fa fa-remove"><i>remove</i></a>
                 </td>
                 </tr>
             @endforeach

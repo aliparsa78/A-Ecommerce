@@ -1,3 +1,4 @@
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -9,7 +10,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{url('admin-regester')}}">
             @csrf
 
             <!-- Name -->
@@ -19,40 +20,36 @@
             </div>
             <div>
                 <x-label for="name" :value="__('LastName')" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="lastName" :value="old('name')" required autofocus />
+            </div>
+            <div>
+                <x-label for="name" :value="__('Email')" />
+                <x-input id="name" class="block mt-1 w-full" type="email" name="email" :value="old('name')" required autofocus />
             </div>
             <div>
                 <x-label for="name" :value="__('City')" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="city" :value="old('name')" required autofocus />
             </div>
             <div>
                 <x-label for="name" :value="__('Phone')" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="number" name="phone" :value="old('name')" required autofocus />
             </div>
             <div>
                 <x-label for="name" :value="__('Country')" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="country" :value="old('name')" required autofocus />
             </div>
-            <div>
-                <x-label for="name" :value="__('Name')" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+            
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Address1')" />
 
-                <textarea name="address1" id="" class="block mt-1 w-full"  cols="30" rows="3" required autofocus></textarea>
+                <textarea name="address1" class="block mt-1 w-full"  cols="30" rows="3" required autofocus></textarea>
             </div>
             <div>
                 <x-label for="name" :value="__('Address2')" />
                 <textarea name="address2" id="" class="block mt-1 w-full"  cols="30" rows="3" required autofocus></textarea>
             </div>
-            <div>
-                <x-label for="name" :value="__('Role_as')" />
-                <input type="radio" name = "role_as" class="" value="0"> 0
-                <input type="radio" name = "role_as" class=" ml-4 " value="1"> 1
-
-            </div>
+            
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />

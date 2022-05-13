@@ -28,8 +28,9 @@ Route::get('/home',[HomeController::class,'index']);
 
 Route::group(['middleware'=>['admin','auth']],function(){
     Route::get('/dashboard', [AdminController::class,'index']);
-    Route::get('/admin',[UserController::class,'admin']);
+    Route::get('/admin',[AdminController::class,'admin']);
     Route::view('/add-admin','Admin.admin.admin-form');
+    Route::post('/admin-regester',[AdminController::class,'admin_regester']);
     Route::get('/user',[UserController::class,'user']);
     Route::get('/remove-user/{id}',[UserController::class,'remove_user']);
 });

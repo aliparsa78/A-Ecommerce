@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @section('title')
-    User
+    Admin
     @endsection
 </head>
 <body class="body">
@@ -23,7 +23,6 @@
                 <th scope="col">lastname</th>
                 <th scope="col">email</th>
                 <th scope="col">city</th>
-                <th scope="col">zip</th>
                 <th scope="col">phone</th>
                 <th scope="col">country</th>
                 <th scope="col">address1</th>
@@ -40,7 +39,6 @@
                 <td>{{$user->lastName}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->city}}</td>
-                <td>{{$user->zip}}</td>
                 <td>{{$user->phone}}</td>
                 <td>{{$user->country}}</td>
                 <td>{{$user->address1}}</td>

@@ -21,6 +21,6 @@ class UserController extends Controller
         if(User::Exists($user)){
             $user->delete();
         }
-        return redirect('dashboard');
+        return redirect('admin');
     }
 }

@@ -9,7 +9,12 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    function index()
+    function admin()
+    {
+        $user = User::all()->where('role_as','1');
+        return view('Admin.admin.index',compact('user'));
+    }
+    function user()
     {
        $user = User::all();
        return view('Admin.Users.index',compact('user'));
@@ -20,6 +25,6 @@ class UserController extends Controller
         if(User::Exists($user)){
             $user->delete();
         }
-        return redirect('user');
+        return redirect('dashboard');
     }
 }

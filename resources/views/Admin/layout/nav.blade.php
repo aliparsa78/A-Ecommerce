@@ -15,7 +15,10 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('user')}}">user</a>
+          <a class="nav-link" href="{{url('user')}}">users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('admin')}}">admins</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>

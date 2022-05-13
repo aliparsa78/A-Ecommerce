@@ -28,6 +28,8 @@ Route::get('/home',[HomeController::class,'index']);
 
 Route::group(['middleware'=>['admin','auth']],function(){
     Route::get('/dashboard', [AdminController::class,'index']);
-    Route::get('/user',[UserController::class,'index']);
+    Route::get('/admin',[UserController::class,'admin']);
+    Route::view('/add-admin','Admin.admin.admin-form');
+    Route::get('/user',[UserController::class,'user']);
     Route::get('/remove-user/{id}',[UserController::class,'remove_user']);
 });

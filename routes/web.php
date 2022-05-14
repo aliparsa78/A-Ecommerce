@@ -36,4 +36,6 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::post('/user_update/{id}',[UserController::class,'update']);
     Route::get('/admin_setting',[AdminController::class,'admin_setting']);
     Route::post('/change-email',[AdminController::class,'change_email']);
+    Route::get('/change_password',[AdminController::class,'change_password']);
+    Route::post('/update_pass/{id}',[AdminController::class,'update_pass']);
 });

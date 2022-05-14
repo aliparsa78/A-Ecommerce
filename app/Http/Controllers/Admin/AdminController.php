@@ -44,8 +44,7 @@ class AdminController extends Controller
     }
     function change_email(Request $req)
     {
-        if(Auth::check()){
-            
+        if(Auth::check()){  
             $email = User::all('email');
            if(User::where('email',$req->input('email'))->exists()){
                 return back()->withErrors(['msg'=>'this email already in use!']);
@@ -58,9 +57,38 @@ class AdminController extends Controller
             $user->email=$req->email;
             $user->update();
             return redirect('admin');
-
            }
-           
+        }
+    }
+    function change_password()
+    {
+        if(Auth::check()){
+            $user = User::all()->where('id',auth::id())->first();
+            
+            return view('Admin.admin.change_password',compact('user'));
+        }
+    }
+    function update_pass(Request $req,$id)
+    {
+        if(Auth::check()){
+            $user = User::find($id);
+            $current_pass = $req->input('current_pass');
+            if(Hash::check($current_pass,$user->password)){
+                $new_pass = $req->input('new_pass');
+                $conf_pass = $req->input('password_confirmation');
+                if($new_pass==$conf_pass){
+                    $req->validate([
+                        'password_confirmation'=>'required|min:8',
+                    ]);
+                    $user->password = Hash::make($conf_pass);
+                    $user->update();
+                    return redirect('admin_setting')->with('success','Password changed successfuly');
+                }else{
+                    return back()->withErrors(['msg'=>'Password not matched']);
+                }
+            }else{
+                return back()->withErrors(['msg'=>'Currect password was wrong!']);
+            }
         }
     }
 }

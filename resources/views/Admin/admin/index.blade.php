@@ -13,6 +13,8 @@
 
     @section('content')
     <a href="{{url('add-admin')}}" class="btn btn-info mt-4">Add admin <i class="fa fa-user"></i></a>
+    
+
         <h4 class="text-center">Admin Table</h4>
     <div class="table-responsive">
         <table class="table table-hover" id="user-table">
@@ -45,7 +47,7 @@
                 <td>{{$user->address2}}</td>
                 <td>{{$user->verificationCode}}</td>
                 <td>
-                    <a href="update-user/{{$user->id}}" class="btn btn-info fa fa-edit"><i>update</i></a>
+                    <a href="update-user/{{$user->id}}" class="btn btn-info fa fa-edit disabled" ><i>update</i></a>
                 </td>
                 <td>
                     <a href="remove-user/{{$user->id}}" class="btn btn-danger fa fa-remove"><i>remove</i></a>

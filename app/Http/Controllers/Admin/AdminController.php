@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -34,5 +35,32 @@ class AdminController extends Controller
         $admin->address1 = $req->input('address1');
         $admin->save();
         return redirect('/admin');
+    }
+    function admin_setting(){
+        if(Auth::check()){
+            $user= auth::user()->id;
+            return view('Admin.admin.setting');
+        }
+    }
+    function change_email(Request $req)
+    {
+        if(Auth::check()){
+            
+            $email = User::all('email');
+           if(User::where('email',$req->input('email'))->exists()){
+                return back()->withErrors(['msg'=>'this email already in use!']);
+           }else{
+               $req->validate([
+                   'email'=>'required',
+               ]);
+            $id= auth::user()->id;
+            $user = User::find($id);
+            $user->email=$req->email;
+            $user->update();
+            return redirect('admin');
+
+           }
+           
+        }
     }
 }

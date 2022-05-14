@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('country');
             $table->string('address1');
             $table->string('address2');
+            $table->string('profile');
             $table->string('verificationCode');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

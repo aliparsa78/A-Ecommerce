@@ -34,4 +34,6 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::get('/remove-user/{id}',[UserController::class,'remove_user']);
     Route::get('/update-user/{id}',[UserController::class,'update_user']);
     Route::post('/user_update/{id}',[UserController::class,'update']);
+    Route::get('/admin_setting',[AdminController::class,'admin_setting']);
+    Route::post('/change-email',[AdminController::class,'change_email']);
 });

@@ -29,21 +29,26 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <!-- login & logout -->
-      <ul id="nav-log">
+      <ul id="nav-log" >
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{Auth::user()->name}}
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="user-drapdown-menu">
+              <li class="p-2">
               <form method="POST" action="{{ route('logout') }}">
                   @csrf
                   <x-dropdown-link :href="route('logout')"
-                                      onclick="event.preventDefault();
-                                                  this.closest('form').submit();">
-                                  {{ __('Log Out') }}
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();" style="text-decoration:none;">
+                    logout <i class="fa fa-sign-out"></i>
                   </x-dropdown-link>
               </form>
+              </li>
+              <li class="nav-item ml-4">
+                <a class="nav-link" href="{{url('admin_setting')}}" style="margin-left:20px;">
+                      Setting <i class="fa fa-gear"></i>
+                </a>
               </li>
             </ul>
         </li>

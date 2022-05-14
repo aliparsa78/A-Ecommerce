@@ -12,9 +12,8 @@
     @extends('../Admin/layout/main')
 
     @section('content')
-    <a href="" class="btn btn-info mt-4">Add User <i class="fa fa-user"></i></a>
-    <i class="float-end fa fa-gear">sld</i>
-        <h4 class="text-center">User Table</h4>
+    <!-- <a href="" class="btn btn-info mt-4">Add User <i class="fa fa-user"></i></a> -->
+    <h4 class="text-center mt-4">User Table</h4>
         
     <div class="table-responsive">
         <table class="table table-hover" id="user-table">
@@ -31,7 +30,7 @@
                 <th scope="col">address1</th>
                 <th scope="col">address2</th>
                 <th scope="col">verificationcode</th>
-                <th scope='col'>Action</th>
+                <!-- <th scope='col'>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -49,7 +48,7 @@
                 <td>{{$user->address2}}</td>
                 <td>{{$user->verificationCode}}</td>
                 <td>
-                    <a href="update-user/{{$user->id}}" class="btn btn-info fa fa-edit"><i>update</i></a>
+                    <a href="update-user/{{$user->id}}" class="btn btn-info fa fa-edit disabled"><i>update</i></a>
                 </td>
                 <td>
                     <a href="remove-user/{{$user->id}}" class="btn btn-danger fa fa-remove"><i>remove</i></a>

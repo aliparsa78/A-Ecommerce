@@ -5,11 +5,31 @@
 }
 .body{
     background-color:  #dddddd;
+    
 }
 #user-table{
     margin-top: 40px;
     background-color: white;
     border-radius: 10px;
+}
+#user-drapdown-menu{
+    margin-left:-100px;
+    margin-top:15px;
+}
+#user-drapdown-menu li:hover{
+    background-color: #dddddd;
+}
+.button{
+    border: 1px solid gray;
+}
+.button:hover{
+    background-color: #dddddd;
+}
+.button-danger{
+    border: 2px solid red;
+}
+.button-danger:hover{
+    background-color: red;
 }
 footer{
     width: 100%;

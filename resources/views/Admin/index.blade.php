@@ -16,7 +16,7 @@
 <body>
     @extends('Admin.layout.main')
     @section('content')
-    <h1>this is main part</h1>
+    <h1>this is admin page</h1>
     @endsection 
 
 </body>

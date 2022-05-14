@@ -13,7 +13,9 @@
 
     @section('content')
     <a href="" class="btn btn-info mt-4">Add User <i class="fa fa-user"></i></a>
+    <i class="float-end fa fa-gear">sld</i>
         <h4 class="text-center">User Table</h4>
+        
     <div class="table-responsive">
         <table class="table table-hover" id="user-table">
             <thead>
@@ -23,7 +25,7 @@
                 <th scope="col">lastname</th>
                 <th scope="col">email</th>
                 <th scope="col">city</th>
-                <th scope="col">zip</th>
+                
                 <th scope="col">phone</th>
                 <th scope="col">country</th>
                 <th scope="col">address1</th>
@@ -40,14 +42,14 @@
                 <td>{{$user->lastName}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->city}}</td>
-                <td>{{$user->zip}}</td>
+                
                 <td>{{$user->phone}}</td>
                 <td>{{$user->country}}</td>
                 <td>{{$user->address1}}</td>
                 <td>{{$user->address2}}</td>
                 <td>{{$user->verificationCode}}</td>
                 <td>
-                    <a href="" class="btn btn-info fa fa-edit"><i>update</i></a>
+                    <a href="update-user/{{$user->id}}" class="btn btn-info fa fa-edit"><i>update</i></a>
                 </td>
                 <td>
                     <a href="remove-user/{{$user->id}}" class="btn btn-danger fa fa-remove"><i>remove</i></a>

@@ -23,4 +23,24 @@ class UserController extends Controller
         }
         return redirect('admin');
     }
+    function update_user($id)
+    {
+        $user = User::find($id);
+        return view('Admin.Users.update_user',compact('user'));
+    }
+    function update(Request $req,$id)
+    {
+        if(Auth::check()){
+        $user = User::find($id);
+        $user->name = $req->name;
+        $user->lastName=$req->lastName;
+        $user->country=$req->country;
+        $user->address1=$req->address1;
+        $user->address2=$req->address2;
+        $user->phone=$req->phone;
+        $user->city= $req->city;
+        $user->update();
+        return redirect('dashboard');
+        }
+    }
 }

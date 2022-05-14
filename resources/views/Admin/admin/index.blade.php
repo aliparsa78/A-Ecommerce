@@ -45,7 +45,7 @@
                 <td>{{$user->address2}}</td>
                 <td>{{$user->verificationCode}}</td>
                 <td>
-                    <a href="" class="btn btn-info fa fa-edit"><i>update</i></a>
+                    <a href="update-user/{{$user->id}}" class="btn btn-info fa fa-edit"><i>update</i></a>
                 </td>
                 <td>
                     <a href="remove-user/{{$user->id}}" class="btn btn-danger fa fa-remove"><i>remove</i></a>

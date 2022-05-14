@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-     @extends('Admin.layout.main')
+    @extends('Admin.layout.main')
     @section('content')
     <h1>this is main part</h1>
     @endsection 

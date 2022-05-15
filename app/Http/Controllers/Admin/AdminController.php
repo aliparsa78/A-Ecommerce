@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Auth;
+use File;
 
 class AdminController extends Controller
 {
@@ -38,8 +39,9 @@ class AdminController extends Controller
     }
     function admin_setting(){
         if(Auth::check()){
-            $user= auth::user()->id;
-            return view('Admin.admin.setting');
+            $user = User::all()->where('id',auth::id())->first();
+
+            return view('Admin.admin.setting',compact('user'));
         }
     }
     function change_email(Request $req)
@@ -91,4 +93,29 @@ class AdminController extends Controller
             }
         }
     }
-}
+    function profile(Request $req,$id)
+    {
+        $user = User::find($id);
+        if(Auth::check())
+        { 
+            if($req->hasFile('profile'))
+            {   
+                $path = "Admin/Profile/".$user->profile;
+                if(File::exists($path))
+                {
+                    File::delete($path);
+                }
+                    $file = $req->file('profile');
+                    $exe = $file->getClientOriginalExtension();
+                    $filename = time().'.'.$exe;
+                    $file->move('Admin/Profile/',$filename);
+                    $user->profile = $filename;
+                    $user->update();
+                    
+                }
+            } 
+            return back();
+                 
+        }
+    }
+

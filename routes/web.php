@@ -38,4 +38,5 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::post('/change-email',[AdminController::class,'change_email']);
     Route::get('/change_password',[AdminController::class,'change_password']);
     Route::post('/update_pass/{id}',[AdminController::class,'update_pass']);
+    Route::post('/profile/{id}',[AdminController::class,'profile']);
 });

@@ -1,3 +1,8 @@
+<script src = "../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap5.bundle.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap5.css">
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../css/style.css">
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">

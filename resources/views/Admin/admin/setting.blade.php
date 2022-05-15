@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/bootstrap5.bundle.js"></script>
     <script src = "../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap5.bundle.js"></script>
     @section('title')
     Setting
     @endsection
@@ -18,11 +18,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="ali.jpg" width="200px" height="200px" alt="notSelected" class="rounded-circle"> <br><br>
-                    <p class="">Public Profile</p>
+                    <img src="{{asset('Admin/Profile/'.$user->profile)}}" width="200px" height="200px" alt="notSelected" class="rounded-circle mt-4"> <br>
+                    
+                    <form action="profile/{{$user->id}}" method="Post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="profile"  style="width: 160px; margin-top:20px; padding-left:20px;">
+                        <input type="submit" value="submit" class="btn btn-success" style="height:45px;margin-bottom:10px;padding:4px;">
+                    </form>
+                    <br><br>
+                    <p class="fw-bold">Public Profile</p>
+                    
                 </div>
 
-                <div class="col-md-7 mt-4">
+                <div class="col-md-7 mt-5">
                     @if(Session::has('success'))
                         <div class="alert alert-success">
                             <ul>

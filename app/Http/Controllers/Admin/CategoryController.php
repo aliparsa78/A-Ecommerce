@@ -22,4 +22,18 @@ class CategoryController extends Controller
         $category->save();
         return redirect()->route('category');
     }
+    function update_category($id)
+    {
+        $category = Category::find($id);
+        return view('Admin.Category.update',compact('category'));
+    }
+    function update(Request $req,$id)
+    {
+        $category = Category::find($id);
+        $category->name = $req->category;
+        $category->featured = $req->featured;
+        $category->active = $req->active;
+        $category->update();
+        return redirect()->route('category');
+    }
 }

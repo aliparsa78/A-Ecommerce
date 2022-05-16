@@ -38,7 +38,7 @@
                 <td>
                     <img src="{{asset('../Admin/Products/'.$product->image)}}" width="100px" alt="">
                 </td>
-                <td>{{$product->desctiption}}</td>
+                <td>{{$product->description}}</td>
                 <td>{{$product->original_price}}</td>
                 <td>{{$product->selling_price}}</td>
                 <td>{{$product->weight}}</td>

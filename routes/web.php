@@ -54,6 +54,7 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::get('/product',[ProductController::class,'index'])->name('product');
     Route::get('/remove-product/{id}',[ProductController::class,'remove']);
     Route::get('/update-product/{id}',[ProductController::class,'edite']);
+    Route::post('/update_product/{id}',[ProductController::class,'update']);
     Route::get('add-product',[ProductController::class,'add_product']);
     Route::post('/Add_product',[ProductController::class,'add']);
 

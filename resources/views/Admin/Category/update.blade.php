@@ -18,7 +18,7 @@
                 
                 <x-label for="category" :value="__('Category Name')" />
 
-                <x-input id="categoy" class="block mt-1 w-full"
+                <x-input id="categoy" class="block mt-1 w-full" value="{{$category->name}}"
                 type="text"
                 name="category"
                 required autocomplete="category" />

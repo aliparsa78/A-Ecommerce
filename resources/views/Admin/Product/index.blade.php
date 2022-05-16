@@ -1,3 +1,6 @@
+@section('title')
+    Product
+@endsection
 @extends('Admin.layout.main')
 
 @section('content')
@@ -6,8 +9,8 @@
         <h6>{{Session::get('success')}}</h6>
     </div>
 @endif
-<a href="{{url('add_product')}}" class="btn btn-info mt-4">Add Category <i class="fa fa-product"></i></a>
-    <h4 class="text-center">Categories</h4>
+<a href="{{url('add-product')}}" class="btn btn-info mt-4">Add Product <i class="fa fa-product"></i></a>
+    <h4 class="text-center">Products</h4>
     <div class="table-responsive">
         <table class="table table-hover" id="product-table">
             <thead>
@@ -15,6 +18,7 @@
                 <th scope="col">#</th>
                 <th scope="col">name</th>
                 <th scope="col">cat_id</th>
+                <th scope="col">image</th>
                 <th scope="col">description</th>
                 <th scope="col">original_price</th>
                 <th scope="col">selling_price</th>
@@ -30,7 +34,10 @@
                 <tr>
                 <th scope="row">{{$flag++}}</th>
                 <td>{{$product->name}}</td>
-                <td>{{$product->cat_id}}</td>
+                <td>{{$product->categories->name}}</td>
+                <td>
+                    <img src="{{asset('../Admin/Products/'.$product->image)}}" width="100px" alt="">
+                </td>
                 <td>{{$product->desctiption}}</td>
                 <td>{{$product->original_price}}</td>
                 <td>{{$product->selling_price}}</td>

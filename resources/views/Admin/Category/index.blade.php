@@ -1,3 +1,6 @@
+@section('title')
+    Categories
+@endsection
 @extends('Admin.layout.main')
 
 @section('content')

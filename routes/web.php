@@ -31,7 +31,7 @@ Route::middleware(['auth','admin'])->group(function(){
     // Admin part start here
     Route::get('/dashboard', [AdminController::class,'index'])->name("dashboard");
     Route::get('/admins',[AdminController::class,'admin'])->name('admin');
-    Route::view('/add-admin','Admin.admin.admin-form');
+    Route::view('/add-admin','Admin.admin.admin-form')->middleware('auth');
     Route::post('/admin-regester',[AdminController::class,'admin_regester']);
     Route::get('/user',[UserController::class,'user']);
     Route::get('/remove-user/{id}',[UserController::class,'remove_user']);
@@ -45,7 +45,7 @@ Route::middleware(['auth','admin'])->group(function(){
     
     // Products Part start here
     Route::get('/category',[CategoryController::class,'index'])->name('category');
-    Route::view('/add_category','Admin.Category.add');
+    Route::view('/add_category','Admin.Category.add')->middleware('auth');
     Route::post('/add_category',[CategoryController::class,'add']);
     Route::get('/update-category/{id}',[CategoryController::class,'update_category']);
     Route::post('/update_category/{id}',[CategoryController::class,'update']);
@@ -53,4 +53,8 @@ Route::middleware(['auth','admin'])->group(function(){
     // Products Part Start Here
     Route::get('/product',[ProductController::class,'index'])->name('product');
     Route::get('/remove-product/{id}',[ProductController::class,'remove']);
+    Route::get('/update-product/{id}',[ProductController::class,'edite']);
+    Route::get('add-product',[ProductController::class,'add_product']);
+    Route::post('/Add_product',[ProductController::class,'add']);
+
 });

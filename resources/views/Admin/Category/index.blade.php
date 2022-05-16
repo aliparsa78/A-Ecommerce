@@ -1,6 +1,11 @@
 @extends('Admin.layout.main')
 
 @section('content')
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        <h6>{{Session::get('success')}}</h6>
+    </div>
+@endif
 <a href="{{url('add_category')}}" class="btn btn-info mt-4">Add Category <i class="fa fa-category"></i></a>
     <h4 class="text-center">Categories</h4>
     <div class="table-responsive">
@@ -15,9 +20,10 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $flag=1; ?>
             @foreach($category as $category)
                 <tr>
-                <th scope="row">{{$category->id}}</th>
+                <th scope="row">{{$flag++}}</th>
                 <td>{{$category->name}}</td>
                 <td>{{$category->featured}}</td>
                 <td>{{$category->active}}</td>

@@ -54,8 +54,7 @@ class AdminController extends Controller
             return back()->withErrors(['msg'=>'password not matched']);
         }
         $admin->save();
-        return redirect()->route('dashboard');
-        // ->with('success','User added successfuly');
+        return redirect()->route('dashboard')->with('success','User added successfuly');
     }
     function admin_setting(){
         if(Auth::check()){

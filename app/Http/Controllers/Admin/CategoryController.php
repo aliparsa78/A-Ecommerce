@@ -34,6 +34,16 @@ class CategoryController extends Controller
         $category->featured = $req->featured;
         $category->active = $req->active;
         $category->update();
-        return redirect()->route('category');
+        return redirect()->route('category')->with('success','Category update successfuly!');
+    }
+    function remove($id)
+    {
+        $category = Category::find($id);
+        if($category)
+        {
+            $category->delete();
+            return redirect()->route('category')->with('success','Category deleted!');
+        }
+        
     }
 }

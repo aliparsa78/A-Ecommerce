@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +27,9 @@ require __DIR__.'/auth.php';
 Route::get('/home',[HomeController::class,'index']);
 
 Route::middleware(['auth','admin'])->group(function(){
-
-    Route::get('/dashboard', [AdminController::class,'index']);
-    Route::get('/admin',[AdminController::class,'admin']);
+    // Admin part start here
+    Route::get('/dashboard', [AdminController::class,'index'])->name("dashboard");
+    Route::get('/admins',[AdminController::class,'admin'])->name('admin');
     Route::view('/add-admin','Admin.admin.admin-form');
     Route::post('/admin-regester',[AdminController::class,'admin_regester']);
     Route::get('/user',[UserController::class,'user']);
@@ -39,4 +41,9 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::get('/change_password',[AdminController::class,'change_password']);
     Route::post('/update_pass/{id}',[AdminController::class,'update_pass']);
     Route::post('/profile/{id}',[AdminController::class,'profile']);
+    
+    // Products Part start here
+    Route::get('/category',[CategoryController::class,'index'])->name('category');
+    Route::view('/add_category','Admin.Category.add');
+    Route::post('/add_category',[CategoryController::class,'add']);
 });

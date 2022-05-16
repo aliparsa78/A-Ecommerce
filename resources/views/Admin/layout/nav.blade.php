@@ -18,10 +18,10 @@
           <a class="nav-link" href="{{url('user')}}">users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('admin')}}">admins</a>
+          <a class="nav-link" href="{{url('admins')}}">admins</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link " href="{{url('category')}}">Categories</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -32,23 +32,25 @@
       <ul id="nav-log" >
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{Auth::user()->name}}
+            <img src="{{asset('Admin/Profile/'.Auth::user()->profile)}}" width="30px" height="30px" class="rounded-circle" alt="User Profile">  
+            
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="user-drapdown-menu">
-              <li class="p-2">
-              <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <x-dropdown-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                    this.closest('form').submit();" style="text-decoration:none;">
-                    logout <i class="fa fa-sign-out"></i>
-                  </x-dropdown-link>
-              </form>
-              </li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="user-drapdown-menu">  
+            
               <li class="nav-item ml-4">
                 <a class="nav-link" href="{{url('admin_setting')}}" style="margin-left:20px;">
-                      Setting <i class="fa fa-gear"></i>
+                      Profile <i class="fa fa-gear"></i>
                 </a>
+              </li>
+              <li class="p-2">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-dropdown-link :href="route('logout')"
+                      onclick="event.preventDefault();
+                      this.closest('form').submit();" style="text-decoration:none;">
+                      logout <i class="fa fa-sign-out"></i>
+                    </x-dropdown-link>
+                </form>
               </li>
             </ul>
         </li>

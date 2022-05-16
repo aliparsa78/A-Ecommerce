@@ -12,6 +12,11 @@
     @extends('../Admin/layout/main')
 
     @section('content')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    @endif
     <!-- <a href="" class="btn btn-info mt-4">Add User <i class="fa fa-user"></i></a> -->
     <h4 class="text-center mt-4">User Table</h4>
         

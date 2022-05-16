@@ -22,14 +22,11 @@
                     
                     <form action="profile/{{$user->id}}" method="Post" enctype="multipart/form-data">
                         @csrf
-                        <input type="file" name="profile"  style="width: 160px; margin-top:20px; padding-left:20px;">
+                        <input type="file" name="profile"  style="width: 140px; margin-top:20px; padding-left:0px;">
                         <input type="submit" value="submit" class="btn btn-success" style="height:45px;margin-bottom:10px;padding:4px;">
                     </form>
-                    <br><br>
                     <p class="fw-bold">Public Profile</p>
-                    
                 </div>
-
                 <div class="col-md-7 mt-5">
                     @if(Session::has('success'))
                         <div class="alert alert-success">
@@ -46,7 +43,9 @@
                     <form action="{{url('change-email')}}" method="POST">
                         @csrf
                         <span class="text-danger fs-6 fw-bold">
-                           @error('email'){{$message}}@enderror
+                           @if($errors->any())
+                           <h6>{{$errors->first()}}</h6>
+                           @endif
                         </span>
                         <input type="email" name ="email" class="form-control" placeholder="Enter your new email">
                         <br>

@@ -21,7 +21,7 @@ class UserController extends Controller
         if(User::Exists($user)){
             $user->delete();
         }
-        return redirect('admin');
+        return back()->with('success','User deleted successfuly!');
     }
     function update_user($id)
     {
@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->phone=$req->phone;
         $user->city= $req->city;
         $user->update();
-        return redirect('dashboard');
+        return back()->with('success','User updated successfuly');
         }
     }
 }

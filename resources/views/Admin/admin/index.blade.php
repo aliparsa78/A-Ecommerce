@@ -12,10 +12,13 @@
     @extends('../Admin/layout/main')
 
     @section('content')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    @endif
     <a href="{{url('add-admin')}}" class="btn btn-info mt-4">Add admin <i class="fa fa-user"></i></a>
-    
-
-        <h4 class="text-center">Admin Table</h4>
+    <h4 class="text-center">Admin Table</h4>
     <div class="table-responsive">
         <table class="table table-hover" id="user-table">
             <thead>

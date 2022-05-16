@@ -22,20 +22,40 @@ class AdminController extends Controller
         return view('Admin.admin.index',compact('user'));
     }
     function admin_regester(Request $req){
+        $req->validate([
+            'name'=>'required',
+            'lastName'=>'required',
+            'city'=>'required',
+            'email'=>'required',
+            'country'=>'required',
+            'address1'=>'required',
+            'address2'=>'required',
+            'phone'=>'required',
+            'name'=>'required',
+        ]);
         $admin = new User();
         $admin->name = $req->input('name');
         $admin->lastName = $req->input('lastName');
         $admin->email = $req->input('email');
-        $admin->password =Hash::make($req->input('password'));
         $admin->city= $req->input('city');
         $admin->country = $req->input('country');
         $admin->address1 = $req->input('address1');
         $admin->address2 = $req->input('address2');
         $admin->phone = $req->input('phone');
         $admin->role_as = '1';
-        $admin->address1 = $req->input('address1');
+        if($req->input('password')==$req->input('password_confirmation'))
+        {
+            $req->validate([
+                'password'=>'required|min:8',
+                //'password_confirmation'=>'required|min:8',
+            ]);
+            $admin->password =Hash::make($req->input('password_confirmation'));
+        }else{
+            return back()->withErrors(['msg'=>'password not matched']);
+        }
         $admin->save();
-        return redirect('/admin');
+        return redirect()->route('dashboard');
+        // ->with('success','User added successfuly');
     }
     function admin_setting(){
         if(Auth::check()){
@@ -49,7 +69,7 @@ class AdminController extends Controller
         if(Auth::check()){  
             $email = User::all('email');
            if(User::where('email',$req->input('email'))->exists()){
-                return back()->withErrors(['msg'=>'this email already in use!']);
+            return back()->withErrors(['msg'=>'The email is already in user!']);
            }else{
                $req->validate([
                    'email'=>'required',
@@ -58,7 +78,7 @@ class AdminController extends Controller
             $user = User::find($id);
             $user->email=$req->email;
             $user->update();
-            return redirect('admin');
+            return back()->with('success','Email updated successfuly');
            }
         }
     }

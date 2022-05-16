@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 
 
 /*
@@ -49,4 +50,7 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::get('/update-category/{id}',[CategoryController::class,'update_category']);
     Route::post('/update_category/{id}',[CategoryController::class,'update']);
     Route::get('/remove-category/{id}',[CategoryController::class,'remove']);
+    // Products Part Start Here
+    Route::get('/product',[ProductController::class,'index'])->name('product');
+    Route::get('/remove-product/{id}',[ProductController::class,'remove']);
 });

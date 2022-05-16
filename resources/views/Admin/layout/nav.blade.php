@@ -15,13 +15,19 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('user')}}">users</a>
+          <a class="nav-link" href="{{url('user')}}">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('admins')}}">admins</a>
+          <a class="nav-link" href="{{url('admins')}}">Admins</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{{url('category')}}">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{url('product')}}">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{url('category')}}">Orders</a>
         </li>
       </ul>
       <form class="d-flex">

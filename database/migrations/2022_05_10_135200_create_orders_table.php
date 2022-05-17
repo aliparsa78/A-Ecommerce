@@ -16,15 +16,15 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->float('orderAmount');
-            $table->string('orderAddress1');
-            $table->string('orderAddress2');
-            $table->char('orderCity');
-            $table->char('orderStatus');
-            $table->char('orderCountry');
-            $table->tinyInteger('phone');
-            $table->string('fax');
-            $table->float('trackingNumber');
+            $table->float('orderAmount')->nullable();
+            $table->string('orderAddress1')->nullable();
+            $table->string('orderAddress2')->nullable();
+            $table->char('orderCity')->nullable();
+            $table->char('orderStatus')->default(0)->nullable();
+            $table->char('orderCountry')->nullable();
+            $table->tinyInteger('phone')->nullable()->max(14);
+            $table->string('fax')->nullable();
+            $table->float('trackingNumber')->nullable();
             $table->timestamps();
         });
     }

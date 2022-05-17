@@ -68,7 +68,7 @@ class ProductController extends Controller
                 
             }
             $product->update();
-            return redirect()->route('product');
+            return redirect()->route('product')->with('success','Product updated successfuly!');
         }
     }
     function add_product()

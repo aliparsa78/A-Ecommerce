@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cat_id')->filable();
+            $table->foreignId('cat_id')->fillable();
             $table->char('name')->nullable();
             $table->float('weight')->nullable();
             $table->longText('desctiption')->nullable();

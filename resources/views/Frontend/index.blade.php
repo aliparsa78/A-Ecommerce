@@ -17,7 +17,7 @@
 			<!-- craousel slide -->
 
 			<!--BANNER-->
-			<div class="wrap-banner style-twin-default">
+			<!-- <div class="wrap-banner style-twin-default">
 				<div class="banner-item">
 					<a href="#" class="link-banner banner-effect-1">
 						<figure><img src="assets/images/home-1-banner-1.jpg" alt="" width="580" height="190"></figure>
@@ -28,7 +28,7 @@
 						<figure><img src="assets/images/home-1-banner-2.jpg" alt="" width="580" height="190"></figure>
 					</a>
 				</div>
-			</div>
+			</div> -->
 
 			<!--On Sale-->
 			<div class="wrap-show-advance-info-box style-1 has-countdown">
@@ -38,7 +38,7 @@
 					@foreach($product as $item)
 					<div class="product product-style-2 equal-elem ">
 						<div class="product-thumnail">
-							<a href="detail.html" title="{{$item->name}}{{$item->description}}">
+							<a href="{{url('detail/'.$item->id)}}" title="{{$item->name}}{{$item->description}}">
 								<figure><img src="{{asset('../Admin/Products/'.$item->image)}}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
 							</a>
 							<div class="group-flash">
@@ -49,8 +49,8 @@
 							</div>
 						</div>
 						<div class="product-info">
-							<a href="#" class="product-name"><span>{{$item->description}}</span></a>
-							<div class="wrap-price"><span class="product-price">${{$item->selling_price}}</span></div>
+							<a href="#" class="product-name"><span><h3>{{$item->description}}</h3></span></a>
+							<div class="wrap-price"><span class="product-price"><h3>${{$item->selling_price}}</h3></span></div>
 						</div>
 					</div>
 					@endforeach

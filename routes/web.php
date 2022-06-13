@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -19,7 +20,6 @@ use App\Http\Controllers\Admin\ProductController;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
 
 require __DIR__.'/auth.php';
 
@@ -55,5 +55,12 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::post('/update_product/{id}',[ProductController::class,'update']);
     Route::get('add-product',[ProductController::class,'add_product']);
     Route::post('/Add_product',[ProductController::class,'add']);
+    
+});
 
+// frintend part start here
+Route::get('/',[HomeController::class,'index']);
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/detail/{id}',[FrontController::class,'detail']);
 });

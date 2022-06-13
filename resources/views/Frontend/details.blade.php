@@ -38,11 +38,20 @@
 					<div class="wrap-product-detail">
 						<div class="detail-media">
 							<div class="product-gallery">
-							  <ul class="slides">
 
-							    <li data-thumb="assets/images/products/digital_18.jpg">
-							    	<img src="{{url('Admin/Products/'.$product->image)}}" alt="product thumbnail" />
+							  <ul class="slides">
+                                  
+							    <li data-thumb="{{asset('Admin/Products/'.$product->image)}}">
+							    	<img src="{{asset('Admin/Products/'.$product->image)}}" alt="product thumbnail" />
 							    </li>
+                                
+                                
+                                @foreach($related as $rel)
+                                <li data-thumb="{{asset('Admin/Products/'.$rel->image)}}" >
+							    	<img src="{{asset('Admin/Products/'.$rel->image)}}"  alt="product thumbnail" />
+							    </li>
+                                @endforeach
+                                
 
 							  </ul>
 							</div>
@@ -61,6 +70,7 @@
                                 <ul>
                                     <li><h3>{{$product->name}}</h3></li>
                                     <li><h3>{{$product->description}}</h3></li>
+                                    <li><h3>{{$product->longdescription}}</h3></li>
                                 </ul>
                             </div>
                             

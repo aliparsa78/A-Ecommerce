@@ -18,7 +18,9 @@ class CreateProductsTable extends Migration
             $table->foreignId('cat_id')->fillable();
             $table->char('name')->nullable();
             $table->float('weight')->nullable();
+            $table->char('size')->nullable();
             $table->longText('desctiption')->nullable();
+            $table->longText('longdescription')->nullable();
             $table->float('original_price')->nullable();
             $table->float('selling_price')->nullable();
             $table->string('image')->nullable();

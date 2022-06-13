@@ -87,9 +87,11 @@ class ProductController extends Controller
             $product->name=$req->input('name');
             $product->cat_id=$req->input('cat_id');
             $product->description=$req->input('description');
+            $product->longdescription=$req->input('longdescription');
             $product->original_price=$req->input('original_price');
             $product->selling_price=$req->input('selling_price');
             $product->weight=$req->input('weight');
+            $product->size=$req->input('size');
             $product->tax=$req->input('tax');
             $product->qty=$req->input('qty');
             // imagepart

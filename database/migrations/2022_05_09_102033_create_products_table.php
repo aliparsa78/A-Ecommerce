@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->char('name')->nullable();
             $table->float('weight')->nullable();
             $table->char('size')->nullable();
+            $table->char('color')->nullable();
             $table->longText('desctiption')->nullable();
             $table->longText('longdescription')->nullable();
             $table->float('original_price')->nullable();

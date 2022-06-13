@@ -34,27 +34,42 @@
                 {{$product->description}}
                 </textarea>
             </div>
-            
+            <div class="mt-4">
+                <label for="desctiption" class="mt-4"/>desctiption</label>
+
+                <textarea name="longdescription" class="block mt-1 w-full"  cols="30" rows="3"  >
+                {{$product->longdescription}}
+                </textarea>
+            </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('original_price')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full" type="float" name="original_price" value="{{$product->original_price}}" placeholder="Enter the original price of product"  required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full" type="text" name="original_price" value="{{$product->original_price}}" placeholder="Enter the original price of product"  required autofocus  />
             </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('selling_price')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full form-control" type="float" name="selling_price" value="{{$product->selling_price}}" placeholder="Enter the selling price of product"  required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full form-control" type="number" name="selling_price" value="{{$product->selling_price}}" placeholder="Enter the selling price of product"  required autofocus  />
             </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('weight')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full" type="float" name="weight" value="{{$product->weight}}" placeholder="Enter the weight of your product" required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full" type="number" name="weight" value="{{$product->weight}}" placeholder="Enter the weight of your product" required autofocus  />
             </div>
-            
+            <div>
+                <x-label id="x-label" for="name" :value="__('color')" class="mt-4"/>
+                <x-input id="input-form" class="block mt-1 w-full" type="number" name="color" value="{{$product->color}}" placeholder="Enter the weight of your product" required autofocus  />
+            </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('tax')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full" type="float" name="tax" value="{{$product->tax}}" placeholder="Enter the tax that enact on your product" required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full" type="number" name="tax" value="{{$product->tax}}" placeholder="Enter the tax that enact on your product" required autofocus  />
             </div>
+
+            <div>
+                <x-label id="x-label" for="name" :value="__('size')" class="mt-4"/>
+                <x-input id="input-form" class="block mt-1 w-full" type="number" name="size" value="{{$product->size}}" placeholder="Enter the tax that enact on your product" required autofocus  />
+            </div>
+
             <div>
                 <x-label id="x-label" for="name" :value="__('quantity')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full" type="integer" name="qty" value="{{$product->qty}}" placeholder="Entet your product quantity" required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full" type="number" name="qty" value="{{$product->qty}}" placeholder="Entet your product quantity" required autofocus  />
             </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('image')" class="mt-4"/>

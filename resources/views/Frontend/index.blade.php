@@ -75,7 +75,7 @@
 									@foreach($latest as $latest)
 									<div class="product product-style-2 equal-elem ">
 										<div class="product-thumnail">
-											<a href="detail.html" title="{{$latest->name}}{{$latest->description}}">
+											<a href="{{url('detail/'.$latest->id)}}" title="{{$latest->name}}{{$latest->description}}">
 												<figure><img src="{{asset('../Admin/Products/'.$latest->image)}}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
 											</a>
 											<div class="group-flash">
@@ -116,10 +116,10 @@
 								<div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}' >
 									
 								@foreach($category as $category)
-									<div class="product product-style-2 equal-elem ">
+									<div class="product product-style-2 equal-elem " style="width:360px;">
 										<div class="product-thumnail">
-											<a href="detail.html" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-												<figure><img src="{{asset('Admin/Category/'.$category->image)}}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+											<a href="{{url('category_detail/'.$category->id)}}">
+												<figure><img src="{{asset('Admin/Category/'.$category->image)}}" width="800px" height="800px" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
 											</a>
 											<div class="group-flash">
 												<span class="flash-item bestseller-label">Bestseller</span>
@@ -129,8 +129,7 @@
 											</div>
 										</div>
 										<div class="product-info">
-											<a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-											<div class="wrap-price"><span class="product-price">$250.00</span></div>
+											<a href="#" class="product-name"><span>{{$category->name}}</span></a>
 										</div>
 									</div>
 								@endforeach

@@ -22,8 +22,6 @@ class FrontController extends Controller
         
         $related = Product::all()->where('cat_id',$cat_id);
         
-        
-        
         return view('Frontend.details',compact('product','related'));
     }
 }

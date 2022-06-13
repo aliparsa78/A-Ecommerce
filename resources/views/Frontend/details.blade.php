@@ -70,7 +70,6 @@
                                 <ul>
                                     <li><h3>{{$product->name}}</h3></li>
                                     <li><h3>{{$product->description}}</h3></li>
-                                    <li><h3>{{$product->longdescription}}</h3></li>
                                 </ul>
                             </div>
                             
@@ -104,21 +103,19 @@
 							</div>
 							<div class="tab-contents">
 								<div class="tab-content-item active" id="description">
-									<p>Lorem ipsum dolor sit amet, an munere tibique consequat mel, congue albucius no qui, a t everti meliore erroribus sea. ro cum. Sea ne accusata voluptatibus. Ne cum falli dolor voluptua, duo ei sonet choro facilisis, labores officiis torquatos cum ei.</p>
-									<p>Cum altera mandamus in, mea verear disputationi et. Vel regione discere ut, legere expetenda ut eos. In nam nibh invenire similique. Atqui mollis ea his, ius graecis accommodare te. No eam tota nostrum eque. Est cu nibh clita. Sed an nominavi, et stituto, duo id rebum lucilius. Te eam iisque deseruisse, ipsum euismod his at. Eu putent habemus voluptua sit, sit cu rationibus scripserit, modus taria . </p>
-									<p>experian soleat maluisset per. Has eu idque similique, et blandit scriptorem tatibus mea. Vis quaeque ocurreret ea.cu bus  scripserit, modus voluptaria ex per.</p>
+									<p>{{$product->longdescription}}</p>
 								</div>
 								<div class="tab-content-item " id="add_infomation">
 									<table class="shop_attributes">
 										<tbody>
 											<tr>
-												<th>Weight</th><td class="product_weight">1 kg</td>
+												<th>Weight</th><td class="product_weight">{{$product->weight}} kg</td>
 											</tr>
 											<tr>
-												<th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
+												<th>size</th><td class="product_dimensions">{{$product->size}}</td>
 											</tr>
 											<tr>
-												<th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
+												<th>Color</th><td><p>{{$product->color}}</p></td>
 											</tr>
 										</tbody>
 									</table>

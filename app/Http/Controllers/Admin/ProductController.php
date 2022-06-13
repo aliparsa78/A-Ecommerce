@@ -52,6 +52,9 @@ class ProductController extends Controller
             $product->original_price=$req->input('original_price');
             $product->selling_price=$req->input('selling_price');
             $product->weight=$req->input('weight');
+            $product->color=$req->input('color');
+            $product->size=$req->input('size');
+            $product->longdescription=$req->input('longdescription');
             $product->tax=$req->input('tax');
             $product->qty=$req->input('qty');
             // imagepart
@@ -91,6 +94,7 @@ class ProductController extends Controller
             $product->original_price=$req->input('original_price');
             $product->selling_price=$req->input('selling_price');
             $product->weight=$req->input('weight');
+            $product->color=$req->input('color');
             $product->size=$req->input('size');
             $product->tax=$req->input('tax');
             $product->qty=$req->input('qty');

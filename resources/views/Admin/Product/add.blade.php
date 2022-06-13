@@ -43,24 +43,27 @@
             </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('original_price')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full" type="number" name="original_price" :value="old('name')" placeholder="Enter the original price of product"  required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full" type="text" name="original_price" :value="old('name')" placeholder="Enter the original price of product"  required autofocus  />
             </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('selling_price')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full form-control" type="number" name="selling_price" :value="old('name')" placeholder="Enter the selling price of product"  required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full form-control" type="text" name="selling_price" :value="old('name')" placeholder="Enter the selling price of product"  required autofocus  />
             </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('weight')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full" type="number" name="weight" :value="old('name')" placeholder="Enter the weight of your product" required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full" type="text" name="weight" :value="old('name')" placeholder="Enter the weight of your product" required autofocus  />
             </div>
             <div>
                 <x-label id="x-label" for="size" :value="__('size')" class="mt-4"/>
                 <x-input id="input-form" class="block mt-1 w-full" type="text" name="size" :value="old('name')" placeholder="Enter the weight of your product" required autofocus  />
             </div>
-            
+            <div>
+                <x-label id="x-label" for="size" :value="__('color')" class="mt-4"/>
+                <x-input id="input-form" class="block mt-1 w-full" type="text" name="color" :value="old('name')" placeholder="Enter the weight of your product" required autofocus  />
+            </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('tax')" class="mt-4"/>
-                <x-input id="input-form" class="block mt-1 w-full" type="number" name="tax" :value="old('name')" placeholder="Enter the tax that enact on your product" required autofocus  />
+                <x-input id="input-form" class="block mt-1 w-full" type="text" name="tax" :value="old('name')" placeholder="Enter the tax that enact on your product" required autofocus  />
             </div>
             <div>
                 <x-label id="x-label" for="name" :value="__('quantity')" class="mt-4"/>

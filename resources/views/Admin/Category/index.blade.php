@@ -17,6 +17,7 @@
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">name</th>
+                <th scope="col">image</th>
                 <th scope="col">featured</th>
                 <th scope="col">active</th>
                 <th scope="col">action</th>
@@ -28,6 +29,9 @@
                 <tr>
                 <th scope="row">{{$flag++}}</th>
                 <td>{{$category->name}}</td>
+                <td>
+                    <img src="{{asset('Admin/Category/'.$category->image)}}" width="100px;" height="100px;">
+                </td>
                 <td>{{$category->featured}}</td>
                 <td>{{$category->active}}</td>
                 

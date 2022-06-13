@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->float('tax')->nullable();
             $table->tinyInteger('qty')->nullable();
             $table->tinyInteger('live')->nullable();
+            $table->boolean('type')->default(0)->nullable();
             $table->timestamps();
         });
     }

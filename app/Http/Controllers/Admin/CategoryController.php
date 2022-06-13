@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use File;
 
 class CategoryController extends Controller
 {
@@ -19,6 +20,16 @@ class CategoryController extends Controller
         $category->name = $req->category;
         $category->featured = $req->featured;
         $category->active = $req->active;
+        if($req->File('image')){
+            $file = $req->file('image');
+            $exe = $file->getClientOriginalExtension();
+            $filename = time().'.'.$exe;
+            $file->move('Admin/Category/',$filename);
+            $category->image = $filename;
+        }else{
+            return "image not selected!";
+        }
+        
         $category->save();
         return redirect()->route('category');
     }
@@ -29,11 +40,23 @@ class CategoryController extends Controller
     }
     function update(Request $req,$id)
     {
-        $category = Category::find($id);
-        $category->name = $req->category;
-        $category->featured = $req->featured;
-        $category->active = $req->active;
-        $category->update();
+        $catagory = Category::find($id);
+        if($req->hasFile('image')){
+            $path ="Admin/Category/".$catagory->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+            $file = $req->file('image');
+            $exe = $file->getClientOriginalExtension();
+            $filename = time().'.'.$exe;
+            $file->move('Admin/Category/',$filename);
+            $catagory->image= $filename; 
+        }
+        $catagory->name=$req->category;
+        $catagory->featured = $req->featured;
+        $catagory->active= $req->active;
+        $catagory->update();
         return redirect()->route('category')->with('success','Category update successfuly!');
     }
     function remove($id)

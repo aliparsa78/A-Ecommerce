@@ -93,7 +93,7 @@ class AdminController extends Controller
     {
         if(Auth::check()){
             $user = User::find($id);
-            $current_pass = $req->input('current_pass');
+            $current_pass = Hash::make($req->input('current_pass'));
             if(Hash::check($current_pass,$user->password)){
                 $new_pass = $req->input('new_pass');
                 $conf_pass = $req->input('password_confirmation');

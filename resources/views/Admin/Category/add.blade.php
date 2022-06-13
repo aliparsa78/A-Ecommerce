@@ -10,7 +10,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="add_category">
+        <form method="POST" action="add_category"  enctype="multipart/form-data">
             @csrf
             
             <!-- Category -->
@@ -27,19 +27,20 @@
             <!-- Featured -->
             <div class="mt-4">
                 <x-label for="featured" :value="__('Featured')" />
-                <input type="radio" name = "featured" value = "1"> 1
-                <input type="radio" name = "featured" value = "0" style="margin-left:50px;" checked> 0
-
+                <input type="radio" name = "featured" value = "1" checked> 1
+                <input type="radio" name = "featured" value = "0" style="margin-left:50px;" > 0
             </div>
             <!-- Active -->
             <div class="mt-4">
                 <x-label for="active" :value="__('active')" />
-
-                <input type="radio" name = "active" value = "1"> 1
-                <input type="radio" name = "active" value = "0" style="margin-left:50px;" checked> 0
-
+                <input type="radio" name = "active" value = "1" checked> 1
+                <input type="radio" name = "active" value = "0" style="margin-left:50px;" > 0
             </div>
-            
+            <!-- image -->
+            <div class="mt-4">
+                <x-label for="active" :value="__('image')" />
+                <input type="file" name ="image" >
+            </div>
 
             <div class="flex items-center justify-end mt-4">
 

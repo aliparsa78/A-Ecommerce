@@ -10,7 +10,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="/update_category/{{$category->id}}">
+        <form method="POST" action="/update_category/{{$category->id}}" enctype="multipart/form-data">
             @csrf
             
             <!-- Category -->
@@ -34,12 +34,14 @@
             <!-- Active -->
             <div class="mt-4">
                 <x-label for="active" :value="__('active')" />
-
                 <input type="radio" name = "active" value = "1" <?php if($category->active==1){echo "checked";}?> > 1
                 <input type="radio" name = "active" value = "0" style="margin-left:50px;" <?php if($category->active==0){echo "checked";}?> > 0
-
             </div>
-            
+            <!-- Image -->
+            <div class="mt-4">
+                <x-label for="active" :value="__('image')" />
+                <input type="file" name="image">
+            </div>
 
             <div class="flex items-center justify-end mt-4">
 

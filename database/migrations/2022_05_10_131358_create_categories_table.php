@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->char('name');
             $table->char('featured')->nullable()->default(0);
             $table->char('active')->nullable()->default(0);
+            $table->string('image')->nullable()->max(30);
             $table->timestamps();
         });
     }

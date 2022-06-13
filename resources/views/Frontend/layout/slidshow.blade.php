@@ -1,39 +1,34 @@
-<link rel="stylesheet" href="../css/style.css">
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="slid/4.jpg" class="d-block w-100" height="350px">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="slid/2.jpg" class="d-block w-100" height="350px">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="slid/3.jpg" class="d-block w-100" height="350px">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+<!--MAIN SLIDE-->
+<div class="wrap-main-slide">
+				<div class="slide-carousel owl-carousel style-nav-1" data-items="1" data-loop="1" data-nav="true" data-dots="false">
+					<div class="item-slide">
+						<img src="assets/images/main-slider-1-1.jpg" alt="" class="img-slide">
+						<div class="slide-info slide-1">
+							<h2 class="f-title">Kid Smart <b>Watches</b></h2>
+							<span class="subtitle">Compra todos tus productos Smart por internet.</span>
+							<p class="sale-info">Only price: <span class="price">$59.99</span></p>
+							<a href="#" class="btn-link">Shop Now</a>
+						</div>
+					</div>
+					<div class="item-slide">
+						<img src="assets/images/main-slider-1-2.jpg" alt="" class="img-slide">
+						<div class="slide-info slide-2">
+							<h2 class="f-title">Extra 25% Off</h2>
+							<span class="f-subtitle">On online payments</span>
+							<p class="discount-code">Use Code: #FA6868</p>
+							<h4 class="s-title">Get Free</h4>
+							<p class="s-subtitle">TRansparent Bra Straps</p>
+						</div>
+					</div>
+					<div class="item-slide">
+						<img src="assets/images/main-slider-1-3.jpg" alt="" class="img-slide">
+						<div class="slide-info slide-3">
+							<h2 class="f-title">Great Range of <b>Exclusive Furniture Packages</b></h2>
+							<span class="f-subtitle">Exclusive Furniture Packages to Suit every need.</span>
+							<p class="sale-info">Stating at: <b class="price">$225.00</b></p>
+							<a href="#" class="btn-link">Shop Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+      

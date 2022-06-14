@@ -87,7 +87,7 @@
 								</div>
 							</div>
 							<div class="wrap-butons">
-								<a href="#" class="btn add-to-cart"><h4>Add to Cart</h4></a>
+								<a href="{{url('add_to_cart/'.$product->id)}}" class="btn add-to-cart"><h4>Add to Cart</h4></a>
                                 <div class="wrap-btn">
                                     <a href="#" class="btn btn-compare"><h4>Add Compare</h4></a>
                                     <a href="#" class="btn btn-wishlist"><h4>Add Wishlist</h4></a>

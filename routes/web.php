@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -61,6 +62,7 @@ Route::middleware(['auth','admin'])->group(function(){
 // frintend part start here
 Route::get('/',[HomeController::class,'index']);
 
+Route::get('/detail/{id}',[FrontController::class,'detail']);
 Route::middleware(['auth'])->group(function(){
-    Route::get('/detail/{id}',[FrontController::class,'detail']);
+    Route::get('/add_to_cart/{id}',[CartController::class,'add']);
 });

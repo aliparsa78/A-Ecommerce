@@ -16,6 +16,12 @@ class CategoryController extends Controller
     }
     function add(Request $req)
     {
+        $req->validate([
+            'category'=>'required',
+            'featured'=>'required',
+            'active'=>'required',
+            'image'=>'required',
+        ]);
         $category = new Category();
         $category->name = $req->category;
         $category->featured = $req->featured;
@@ -27,7 +33,7 @@ class CategoryController extends Controller
             $file->move('Admin/Category/',$filename);
             $category->image = $filename;
         }else{
-            return "image not selected!";
+            return back()->withErrors(['msg'=>'image required']);
         }
         
         $category->save();

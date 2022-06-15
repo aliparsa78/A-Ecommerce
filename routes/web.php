@@ -64,5 +64,7 @@ Route::get('/',[HomeController::class,'index']);
 
 Route::get('/detail/{id}',[FrontController::class,'detail']);
 Route::middleware(['auth'])->group(function(){
-    Route::get('/add_to_cart/{id}',[CartController::class,'add']);
+    Route::get('/cart',[CartController::class,'index']);
+    Route::post('/add_to_cart/{id}',[CartController::class,'add']);
+    Route::get('/delete_cart_item/{id}',[CartController::class,'delete_cart_item']);
 });

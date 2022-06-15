@@ -20,8 +20,16 @@
 	<!--header-->
 	
     @extends('Frontend.layout.main')
+	
     @section('content')
-	<!--main area-->
+
+
+	@if (session('status'))
+        <div class="alert alert-success" role="alert">
+            <h3 class="text-center">{{ session('status') }}</h3>
+        </div>
+    @endif
+	<!--mainn area-->
 	<main id="main" class="main-site">
 
 		<div class="">
@@ -75,24 +83,34 @@
                             
                             <div class="wrap-price"><span class="product-price"><h3>${{$product->selling_price}}</h3></span></div>
                             <div class="stock-info in-stock">
+							<?php if($product->qty>=1){?>
                                 <h4 class="availability">Availability: <b>In Stock</b></h4>
+							<?php } ?>
                             </div>
-                            <div class="quantity">
-                            	<h3><span>Quantity:</span></h3>
-								<div class="quantity-input">
-									<input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
-									
-									<a class="btn btn-reduce" href="#"></a>
-									<a class="btn btn-increase" href="#"></a>
+
+							<div class="stock-info in-stock">
+							<?php if($product->qty<=0){?> 
+                                <h4 class="availability">Availability:<b>Out of Stock</b></h4>
+								<?php }?>
+                            </div>
+							<form action="{{url('add_to_cart/'.$product->id)}}" method="Post">
+								@csrf
+								<div class="quantity">
+									<h3><span>Quantity:</span></h3>
+									<div class="quantity-input">
+										<input type="text" name="product-quatity" value="1" data-max="10" pattern="[0-9]*" >
+											<a class="btn btn-reduce" href="#"></a>
+											<a class="btn btn-increase" href="#"></a>
+									</div>
 								</div>
-							</div>
-							<div class="wrap-butons">
-								<a href="{{url('add_to_cart/'.$product->id)}}" class="btn add-to-cart"><h4>Add to Cart</h4></a>
-                                <div class="wrap-btn">
-                                    <a href="#" class="btn btn-compare"><h4>Add Compare</h4></a>
-                                    <a href="#" class="btn btn-wishlist"><h4>Add Wishlist</h4></a>
-                                </div>
-							</div>
+								<div class="wrap-butons">
+									<input type="submit" value="Add to Cart" class="btn add-to-cart" style="width:300px;">
+									<div class="wrap-btn">
+										<a href="#" class="btn btn-compare"><h4>Add Compare</h4></a>
+										<a href="#" class="btn btn-wishlist"><h4>Add Wishlist</h4></a>
+									</div>
+								</div>
+							</form>
 						</div>
 						<div class="container">
                         <div class="advance-info">

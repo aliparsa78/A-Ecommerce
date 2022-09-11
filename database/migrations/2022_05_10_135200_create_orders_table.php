@@ -17,13 +17,14 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->float('orderAmount')->nullable();
-            $table->string('orderAddress1')->nullable();
-            $table->string('orderAddress2')->nullable();
-            $table->char('orderCity')->nullable();
+            $table->string('orderAddress1')->length(255)->nullable();
+            $table->char('orderCity')->length(255)->nullable();
             $table->char('orderStatus')->default(0)->nullable();
             $table->char('orderCountry')->nullable();
             $table->tinyInteger('phone')->nullable()->max(14);
             $table->string('fax')->nullable();
+            $table->float('total_price')->nullable();
+            $table->float('zipcode')->nullable();
             $table->float('trackingNumber')->nullable();
             $table->timestamps();
         });

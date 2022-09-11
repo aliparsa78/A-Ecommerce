@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Cart;
 
 class HomeController extends Controller
 {
@@ -19,8 +20,9 @@ class HomeController extends Controller
 
         $category =  DB::table('categories')->orderBy('id','desc')->limit(10)->get();
         
+       $cart = Cart::count();
        
         
-        return view('Frontend.index',compact('product','latest','category'));
+        return view('Frontend.index',compact('product','latest','category','cart'));
     }
 }

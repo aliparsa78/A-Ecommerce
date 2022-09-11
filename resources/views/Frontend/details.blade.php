@@ -29,6 +29,11 @@
             <h3 class="text-center">{{ session('status') }}</h3>
         </div>
     @endif
+	@if (session('danger'))
+        <div class="alert alert-danger" role="alert">
+            <h3 class="text-center">{{ session('danger') }}</h3>
+        </div>
+    @endif
 	<!--mainn area-->
 	<main id="main" class="main-site">
 
@@ -52,7 +57,6 @@
 							    <li data-thumb="{{asset('Admin/Products/'.$product->image)}}">
 							    	<img src="{{asset('Admin/Products/'.$product->image)}}" alt="product thumbnail" />
 							    </li>
-                                
                                 
                                 @foreach($related as $rel)
                                 <li data-thumb="{{asset('Admin/Products/'.$rel->image)}}" >

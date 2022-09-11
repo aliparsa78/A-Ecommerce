@@ -26,6 +26,13 @@ class CartController extends Controller
     }
     function add(Request $req,$id)
     {
+        $product_id = $id;
+        if(Cart::where('product_id',$product_id)->where('user_id',auth::id())->exists())
+        {
+            return back()->with('danger','product already exists!');
+        }else{
+
+        
         $user = auth::user()->id;
         $add_to_cart = new Cart();
         $add_to_cart->user_id = $user;
@@ -35,6 +42,7 @@ class CartController extends Controller
         $cart = Cart::all();
         
         return back()->with('status','product added to cart');
+        }
     }
     function delete_cart_item($id)
     {

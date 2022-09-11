@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontController;
+use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -67,4 +68,5 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/cart',[CartController::class,'index']);
     Route::post('/add_to_cart/{id}',[CartController::class,'add']);
     Route::get('/delete_cart_item/{id}',[CartController::class,'delete_cart_item']);
+    Route::get('/checkout',[CheckoutController::class,'index']);
 });

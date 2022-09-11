@@ -30,10 +30,12 @@
 				</ul>
 			</div>
 			<div class=" main-content-area">
-
+			
+				@csrf
 				<div class="wrap-iten-in-cart">
 					<h3 class="box-title">Products Name</h3>
 					<ul class="products-cart">
+						<?php $total = 0; ?>
                         @foreach($cart as $cart)
 						<li class="pr-cart-item">
 							<div class="product-image">
@@ -42,16 +44,16 @@
 							<div class="product-name">
 								<a class="link-to-product" href="{{url('/detail/'.$cart->product_id)}}">{{$cart->products->name}}</a>
 							</div>
-							<div class="price-field produtc-price"><p class="price">${{$cart->products->selling_price}}</p></div>
+							<div class="price-field produtc-price"><p class="price">price : ${{$cart->products->selling_price}}</p></div>
 							<div class="quantity">
 								<div class="quantity-input">
 									<input type="text" name="product-quatity" value="{{$cart->product_qty}}" data-max="120" pattern="[0-9]*" >									
-									<a class="btn btn-increase" href="#"></a>
-									<a class="btn btn-reduce" href="#"></a>
+									<!-- <a class="btn btn-increase" href="#"></a>
+									<a class="btn btn-reduce" href="#"></a> -->
 								</div>
 							</div>
                             @php  $mintotal = $cart->product_qty*$cart->products->selling_price;  @endphp
-							<div class="price-field sub-total"><p class="price">${{$mintotal}}</p></div>
+							<div class="price-field sub-total"><p class="price">total price : ${{$mintotal}}</p></div>
 							<div class="delete">
 								<a href="{{url('delete_cart_item/'.$cart->id)}}" >
 									
@@ -59,6 +61,7 @@
 								</a>
 							</div>
 						</li>
+						@php  $total +=$mintotal;  @endphp
 						@endforeach											
 					</ul>
 				</div>
@@ -66,25 +69,23 @@
 				<div class="summary">
 					<div class="order-summary">
 						<h4 class="title-box">Order Summary</h4>
-						<p class="summary-info"><span class="title">Subtotal</span><b class="index">$512.00</b></p>
-						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index">$512.00</b></p>
+						<!-- <p class="summary-info"><span class="title">Subtotal</span><b class="index">$512.00</b></p>
+						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p> -->
+						<p class="summary-info total-info "><h3 class="title">Total Price</h3><h3 class="index text-danger">${{$total}}</h3></p>
 					</div>
 					<div class="checkout-info">
-						<label class="checkbox-field">
+						<!-- <label class="checkbox-field">
 							<input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-						</label>
-						<a class="btn btn-checkout" href="checkout.html">Check out</a>
-						<a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+						</label> -->
+						<!-- <input type="submit" class="btn btn-checkout" value="Check out"> -->
+						<a class="btn btn-checkout" href="{{url('checkout')}}">Check out</a>
+						<!-- <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> -->
 					</div>
 					<div class="update-clear">
 						<a class="btn btn-clear" href="#">Clear Shopping Cart</a>
 						<a class="btn btn-update" href="#">Update Shopping Cart</a>
 					</div>
 				</div>
-
-				
-
 			</div><!--end main content area-->
 		</div><!--end container-->
 
